@@ -1,6 +1,6 @@
 const employee = {
-  name:"Sam",
-  streetAddress:"11 Broadway",
+  name: "Sam",
+  streetAddress: "11 Broadway",
 }
 
 const beforeEach = function () {
@@ -11,16 +11,29 @@ const beforeEach = function () {
   employee.name = 'Sam';
 };
 // fucntion one
-function updateEmployeeWithKeyAndValue(obj,key,value){
-  return {...obj,[key]:value};
+function updateEmployeeWithKeyAndValue(obj, key, value) {
+  return { ...obj, [key]: value };
 }
 //function  two
-function destructivelyUpdateEmployeeWithKeyAndValue(obj,key,value){
+function destructivelyUpdateEmployeeWithKeyAndValue(obj, key, value) {
   beforeEach()
-  obj[key]=value;
+  obj[key] = value;
   return obj;
 }
-// console.log(destructivelyUpdateEmployeeWithKeyAndValue(employee,"name","njoki"))
 
-// three
+// three - delete???
+function deleteFromEmployeeByKey(obj, key) {
+  beforeEach()
+  let newObj = {...obj}
+  delete newObj[key];
+  return newObj
+
+}
+
+
 // four
+function destructivelyDeleteFromEmployeeByKey(employee,key){
+  beforeEach()
+  delete employee[key];
+  return employee;
+}
