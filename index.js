@@ -1,12 +1,26 @@
 const employee = {
-  name:"Wayne Dyer",
-  streetAddress:"Universal heaven",
+  name:"Sam",
+  streetAddress:"11 Broadway",
 }
 
-// one
+const beforeEach = function () {
+  for (const key in employee) {
+    delete employee[key];
+  }
+
+  employee.name = 'Sam';
+};
+// fucntion one
 function updateEmployeeWithKeyAndValue(obj,key,value){
   return {...obj,[key]:value};
 }
-// two
+//function  two
+function destructivelyUpdateEmployeeWithKeyAndValue(obj,key,value){
+  beforeEach()
+  obj[key]=value;
+  return obj;
+}
+// console.log(destructivelyUpdateEmployeeWithKeyAndValue(employee,"name","njoki"))
+
 // three
 // four
